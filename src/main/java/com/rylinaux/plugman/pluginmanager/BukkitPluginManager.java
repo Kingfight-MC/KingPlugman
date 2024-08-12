@@ -371,10 +371,10 @@ public class BukkitPluginManager implements PluginManager {
         try {
             target = Bukkit.getPluginManager().loadPlugin(pluginFile);
         } catch (InvalidDescriptionException e) {
-            e.printStackTrace();
+            // Do nothing
             return PlugMan.getInstance().getMessageFormatter().format("load.invalid-description");
         } catch (InvalidPluginException e) {
-            e.printStackTrace();
+            // Do nothing
             return PlugMan.getInstance().getMessageFormatter().format("load.invalid-plugin");
         }
 
@@ -403,7 +403,7 @@ public class BukkitPluginManager implements PluginManager {
         try {
             commandMap = (SimpleCommandMap) this.commandMapField.get(Bukkit.getServer());
         } catch (Exception e) {
-            e.printStackTrace();
+            // Do nothing
             return null;
         }
 
@@ -415,7 +415,7 @@ public class BukkitPluginManager implements PluginManager {
         try {
             knownCommands = (Map<String, Command>) this.knownCommandsField.get(commandMap);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            // Do nothing
             return null;
         }
 
@@ -429,7 +429,7 @@ public class BukkitPluginManager implements PluginManager {
             this.commandMapField.setAccessible(true);
             return true;
         } catch (NoSuchFieldException | ClassNotFoundException e) {
-            e.printStackTrace();
+            // Do nothing
             return false;
         }
     }
@@ -442,7 +442,7 @@ public class BukkitPluginManager implements PluginManager {
             this.knownCommandsField.setAccessible(true);
             return true;
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+            // Do nothing
             return false;
         }
     }
@@ -456,7 +456,7 @@ public class BukkitPluginManager implements PluginManager {
         try {
             commandMap = (SimpleCommandMap) this.commandMapField.get(Bukkit.getServer());
         } catch (Exception e) {
-            e.printStackTrace();
+            // Do nothing
             return;
         }
 
@@ -466,7 +466,7 @@ public class BukkitPluginManager implements PluginManager {
         try {
             this.knownCommandsField.set(commandMap, knownCommands);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            // Do nothing
         }
     }
 
@@ -555,7 +555,7 @@ public class BukkitPluginManager implements PluginManager {
                     commands = (Map<String, Command>) knownCommandsField.get(commandMap);
 
                 } catch (NoSuchFieldException | IllegalAccessException e) {
-                    e.printStackTrace();
+                    // Do nothing
                     return PlugMan.getInstance().getMessageFormatter().format("unload.failed", name);
                 }
 
@@ -653,7 +653,7 @@ public class BukkitPluginManager implements PluginManager {
                 commands.remove(entry.getKey());
             }
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            // Do nothing
         }
     }
 
@@ -691,7 +691,7 @@ public class BukkitPluginManager implements PluginManager {
                     owningPlugin = (Plugin) pluginField.get(stringCommandEntry.getValue());
                     return owningPlugin.getName().equalsIgnoreCase(plugin.getName());
                 } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                    // Do nothing
                 }
             }
 

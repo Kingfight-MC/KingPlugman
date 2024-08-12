@@ -74,7 +74,7 @@ public class BungeePluginUtil {
             pluginsField = PluginManager.class.getDeclaredField("plugins");
             pluginsField.setAccessible(true);
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+            // Do nothing
             return new PluginResult("§cError while trying to unload plugin: §4Could not load field 'plugins'§c, see console for more info!", false);
         }
 
@@ -83,7 +83,7 @@ public class BungeePluginUtil {
         try {
             plugins = (Map<String, Plugin>) pluginsField.get(pluginManager);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            // Do nothing
             return new PluginResult("§cError while trying to unload plugin: §4Could not get field 'plugins'§c, see console for more info!", false);
         }
 
@@ -142,7 +142,7 @@ public class BungeePluginUtil {
             yamlField = PluginManager.class.getDeclaredField("yaml");
             yamlField.setAccessible(true);
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+            // Do nothing
             return new PluginResult("§cError while trying to load plugin: §4Could not load field 'yaml'§c, see console for more info!", false);
         }
 
@@ -150,7 +150,7 @@ public class BungeePluginUtil {
         try {
             yaml = (Yaml) yamlField.get(pluginManager);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            // Do nothing
             return new PluginResult("§cError while trying to load plugin: §4Could not get field 'yaml'§c, see console for more info!", false);
         }
 
@@ -159,7 +159,7 @@ public class BungeePluginUtil {
             toLoadField = PluginManager.class.getDeclaredField("toLoad");
             toLoadField.setAccessible(true);
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+            // Do nothing
             return new PluginResult("§cError while trying to load plugin: §4Could not load field 'toLoad'§c, see console for more info!", false);
         }
 
@@ -167,7 +167,7 @@ public class BungeePluginUtil {
         try {
             toLoad = (HashMap<String, PluginDescription>) toLoadField.get(pluginManager);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            // Do nothing
             return new PluginResult("§cError while trying to load plugin: §4Could not get field 'toLoad'§c, see console for more info!", false);
         }
 

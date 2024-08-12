@@ -227,7 +227,7 @@ public class PlugMan extends JavaPlugin {
             try {
                 hash = Files.asByteSource(file).hash(Hashing.md5()).toString();
             } catch (IOException e) {
-                e.printStackTrace();
+                // Do nothing
             }
             this.fileHashMap.put(file.getName(), hash);
 
@@ -239,7 +239,7 @@ public class PlugMan extends JavaPlugin {
                     System.out.println("Possible broken plugin detected: " + file.getName());
                     continue;
                 }
-                e.printStackTrace();
+                // Do nothing
                 continue;
             }
 
@@ -249,7 +249,7 @@ public class PlugMan extends JavaPlugin {
             try {
                 stream = jarFile.getInputStream(jarFile.getEntry("plugin.yml"));
             } catch (IOException e) {
-                e.printStackTrace();
+                // Do nothing
                 continue;
             }
 
@@ -259,7 +259,7 @@ public class PlugMan extends JavaPlugin {
             try {
                 descriptionFile = new PluginDescriptionFile(stream);
             } catch (InvalidDescriptionException e) {
-                e.printStackTrace();
+                // Do nothing
                 continue;
             }
 
@@ -285,7 +285,7 @@ public class PlugMan extends JavaPlugin {
                         try {
                             hash = Files.asByteSource(file).hash(Hashing.md5()).toString();
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            // Do nothing
                         }
                         this.fileHashMap.put(file.getName(), hash);
                     }
@@ -331,7 +331,7 @@ public class PlugMan extends JavaPlugin {
                     try {
                         hash = Files.asByteSource(file).hash(Hashing.md5()).toString();
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        // Do nothing
                         continue;
                     }
 
@@ -432,7 +432,7 @@ public class PlugMan extends JavaPlugin {
                 });
             } catch (Exception e) {
                 this.getLogger().severe("An error occurred while trying to load mappings for '" + name + "'");
-                e.printStackTrace();
+                // Do nothing
             }
 
         }

@@ -85,7 +85,7 @@ public class BukkitCommandWrap {
         try {
             this.registerMethod.invoke(commandWrapper, aInstance, alias);
         } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            // Do nothing
         }
     }
 
@@ -97,7 +97,7 @@ public class BukkitCommandWrap {
             this.syncCommandsMethod.setAccessible(true);
             return true;
         } catch (NoSuchMethodException | ClassNotFoundException e) {
-            e.printStackTrace();
+            // Do nothing
             return false;
         }
     }
@@ -108,7 +108,7 @@ public class BukkitCommandWrap {
         try {
             this.syncCommandsMethod.invoke(Bukkit.getServer());
         } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            // Do nothing
         }
 
         if (Bukkit.getOnlinePlayers().isEmpty()) return;
@@ -137,7 +137,7 @@ public class BukkitCommandWrap {
         try {
             this.removeCommandMethod.invoke(b.getRoot(), command);
         } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            // Do nothing
         }
     }
 
@@ -150,7 +150,7 @@ public class BukkitCommandWrap {
             }
             return true;
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            // Do nothing
             return false;
         }
         return true;
@@ -160,7 +160,7 @@ public class BukkitCommandWrap {
         try {
             return (CommandDispatcher) this.bField.get(commandDispatcher);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            // Do nothing
             return null;
         }
     }
@@ -169,7 +169,7 @@ public class BukkitCommandWrap {
         try {
             return this.vanillaCommandDispatcherField.get(server);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            // Do nothing
             return null;
         }
     }
@@ -178,7 +178,7 @@ public class BukkitCommandWrap {
         try {
             return this.getServerMethod.invoke(this.minecraftServerClass);
         } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            // Do nothing
             return null;
         }
     }
@@ -201,7 +201,7 @@ public class BukkitCommandWrap {
             this.getServerMethod.setAccessible(true);
             return true;
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            // Do nothing
             return false;
         }
     }
@@ -213,7 +213,7 @@ public class BukkitCommandWrap {
             this.vanillaCommandDispatcherField.setAccessible(true);
             return true;
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+            // Do nothing
             return false;
         }
     }
@@ -236,7 +236,7 @@ public class BukkitCommandWrap {
                 return true;
             } catch (NoSuchFieldException | ClassNotFoundException ex) {
                 ex.addSuppressed(e);
-                e.printStackTrace();
+                // Do nothing
                 return false;
             }
         }
@@ -250,7 +250,7 @@ public class BukkitCommandWrap {
             this.registerMethod.setAccessible(true);
             return true;
         } catch (NoSuchMethodException | ClassNotFoundException e) {
-            e.printStackTrace();
+            // Do nothing
             return false;
         }
     }
@@ -259,7 +259,7 @@ public class BukkitCommandWrap {
         try {
             return this.aMethod.invoke(commandDispatcher);
         } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            // Do nothing
             return null;
         }
     }
@@ -268,7 +268,7 @@ public class BukkitCommandWrap {
         try {
             return this.bukkitcommandWrapperConstructor.newInstance(Bukkit.getServer(), command);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            // Do nothing
             return null;
         }
     }
@@ -280,7 +280,7 @@ public class BukkitCommandWrap {
             this.bukkitcommandWrapperConstructor.setAccessible(true);
             return true;
         } catch (NoSuchMethodException | ClassNotFoundException e) {
-            e.printStackTrace();
+            // Do nothing
             return false;
         }
     }
@@ -292,7 +292,7 @@ public class BukkitCommandWrap {
             this.aMethod.setAccessible(true);
             return true;
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            // Do nothing
             return false;
         }
     }

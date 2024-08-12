@@ -163,7 +163,7 @@ public class SpiGetUtil {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            // Do nothing
         }
 
         return -1;
@@ -191,7 +191,7 @@ public class SpiGetUtil {
             return (JSONArray) JSONValue.parse(body);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            // Do nothing
         }
 
         return null;

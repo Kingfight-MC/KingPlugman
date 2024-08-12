@@ -87,7 +87,7 @@ public class PlugManTabCompleter implements TabCompleter {
                         try {
                             jarFile = new JarFile(pluginFile);
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            // Do nothing
                             continue;
                         }
 
@@ -98,7 +98,7 @@ public class PlugManTabCompleter implements TabCompleter {
                         try {
                             stream = jarFile.getInputStream(jarFile.getEntry("plugin.yml"));
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            // Do nothing
                             continue;
                         }
 
@@ -109,7 +109,7 @@ public class PlugManTabCompleter implements TabCompleter {
                         try {
                             descriptionFile = new PluginDescriptionFile(stream);
                         } catch (InvalidDescriptionException e) {
-                            e.printStackTrace();
+                            // Do nothing
                             continue;
                         }
 

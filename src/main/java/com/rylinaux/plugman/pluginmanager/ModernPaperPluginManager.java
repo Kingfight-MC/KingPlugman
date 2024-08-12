@@ -85,7 +85,7 @@ public class ModernPaperPluginManager extends PaperPluginManager {
                 commands = (Map<String, Command>) knownCommandsField.get(commandMap);
 
             } catch (ClassNotFoundException | NoSuchMethodException | NoSuchFieldException | IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
+                // Do nothing
                 return PlugMan.getInstance().getMessageFormatter().format("unload.failed", name);
             }
 
@@ -119,7 +119,7 @@ public class ModernPaperPluginManager extends PaperPluginManager {
                                     commands.remove(entry.getKey());
                                 }
                             } catch (IllegalAccessException e) {
-                                e.printStackTrace();
+                                // Do nothing
                             }
                         }
                     } catch (IllegalStateException e) {

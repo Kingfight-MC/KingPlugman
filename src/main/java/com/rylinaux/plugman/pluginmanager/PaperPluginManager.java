@@ -122,7 +122,7 @@ public class PaperPluginManager implements PluginManager {
                 }
 
         } catch (Throwable throwable) {
-            throwable.printStackTrace();
+            // Do nothing
         }
 
         return false;
@@ -410,10 +410,10 @@ public class PaperPluginManager implements PluginManager {
             try {
                 target = Bukkit.getPluginManager().loadPlugin(pluginFile);
             } catch (InvalidDescriptionException e) {
-                e.printStackTrace();
+                // Do nothing
                 return PlugMan.getInstance().getMessageFormatter().format("load.invalid-description");
             } catch (InvalidPluginException e) {
-                e.printStackTrace();
+                // Do nothing
                 return PlugMan.getInstance().getMessageFormatter().format("load.invalid-plugin");
             }
 
@@ -540,7 +540,7 @@ public class PaperPluginManager implements PluginManager {
                     commands = (Map<String, Command>) knownCommandsField.get(commandMap);
 
                 } catch (NoSuchFieldException | IllegalAccessException e) {
-                    e.printStackTrace();
+                    // Do nothing
                     return PlugMan.getInstance().getMessageFormatter().format("unload.failed", name);
                 }
 

@@ -110,7 +110,7 @@ public class CurseForgeUtil {
             currentPluginHashCode = Files.asByteSource(file).hash(Hashing.md5());
             currentPluginHashCode.toString();
         } catch (IOException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
-            e.printStackTrace();
+            // Do nothing
             return new UpdateResult(UpdateResult.ResultType.INVALID_PLUGIN, currentVersion, latestVersion);
         }
 
@@ -166,7 +166,7 @@ public class CurseForgeUtil {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            // Do nothing
         }
 
         return -1;
@@ -194,7 +194,7 @@ public class CurseForgeUtil {
             return (JSONArray) JSONValue.parse(body);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            // Do nothing
         }
 
         return null;

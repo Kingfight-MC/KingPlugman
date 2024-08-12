@@ -102,7 +102,7 @@ public class DumpCommand extends AbstractCommand {
             sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("dump.dumped", dumpFile.getName()));
         } catch (IOException e) {
             sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("dump.error"));
-            e.printStackTrace();
+            // Do nothing
         }
     }
 }
